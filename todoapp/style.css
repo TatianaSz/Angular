@@ -1,4 +1,37 @@
+body{
+    background-color:#CAD5CA;
+}
+.app{
+    width:60%;
+    margin: 2rem auto; 
+}
+
 .header{
     white-space:pre-wrap;
     text-align:center;
+    font-size:2rem;
+    background-color:#211A1D;
+    color:#CAD5CA;
+    padding:10px;
+    margin: auto 0;
+}
+
+.task ul{
+    list-style-type:none;
+    padding-inline-start: 0px;
+}
+.task h3{
+    margin:0;
+    padding:0;
+
+}
+.task ul li{
+    display:flex;
+    flex-direction:row;
+    text-align:center;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom:1px solid #5F7367;
+    padding: 1rem 0;
+    
 }
