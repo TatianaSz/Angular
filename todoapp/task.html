@@ -1,11 +1,11 @@
 <div class="task" ng-controller="taski" >
     <div class="form-container">
     <form ng-submit="addTask()">
-    <input type="text" ng-model="whatAdd" placeholder="What do you need to do?">
-    <input type="time" ng-model="whenAdd">
+    <input type="text" ng-model="whatAdd" required placeholder="What do you need to do?">
+    <input type="time" required  ng-model="whenAdd">
     <input type="submit"  value="Add">
 </form>
-<button ng-click="sort()">Sortuj według daty</button>
+<button ng-click="sort()">Sort by date</button>
 </div>
 <ul>
     <li ng-repeat="task in tasks track by $index">

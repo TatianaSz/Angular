@@ -35,6 +35,9 @@ body{
     padding: 1rem 0;
     
 }
+ul li:hover{
+    color:#629677;
+}
 time div{
     display:inline;
 }
@@ -61,6 +64,7 @@ form input[type=time], form input[type=submit], button{
 }
 button{
     position:absolute;
+    cursor:pointer;
     top:0;
     right:0;
 }

@@ -7,12 +7,14 @@ app.controller("date", ['$scope', function($scope){
 
 app.controller("taski", ["$scope", function($scope){
     $scope.init = function () {
+    if(window.localStorage.getItem('taskInfo')){
         let items = JSON.parse(window.localStorage.getItem('taskInfo'))
-   console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
+   //console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
    for(let i = 0;i<items.length;i++){
    $scope.tasks.push(items[i])
    }
     }
+}
 
 $scope.sort=function(){
     $scope.tasks.sort(function(a, b) {
@@ -22,6 +24,7 @@ $scope.sort=function(){
 }
 
 $scope.addTask = function(){
+
     let time = ($scope.whenAdd.getHours()<10?"0"+$scope.whenAdd.getHours():$scope.whenAdd.getHours()) +":" + ($scope.whenAdd.getMinutes()<10?"0"+$scope.whenAdd.getMinutes():$scope.whenAdd.getMinutes())
 
     $scope.tasks.push({
@@ -29,7 +32,10 @@ $scope.addTask = function(){
         hour: time,
     })
     window.localStorage.setItem('taskInfo', JSON.stringify($scope.tasks));
-    console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
+    //console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
+
+    $scope.whatAdd="";
+    $scope.whenAdd="";
 }
 $scope.removeTask=function(task){
    const removed = $scope.tasks.indexOf(task);
@@ -37,9 +43,7 @@ $scope.removeTask=function(task){
     window.localStorage.setItem('taskInfo', JSON.stringify($scope.tasks));
 }
 
-    $scope.tasks = [
-       
-    ]
+    $scope.tasks = []
 
     $scope.init();
 }
