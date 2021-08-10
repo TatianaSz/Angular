@@ -14,6 +14,12 @@ app.controller("taski", ["$scope", function($scope){
    }
     }
 
+$scope.sort=function(){
+    $scope.tasks.sort(function(a, b) {
+        return parseFloat(parseInt(a.hour.split(":")[0]*60)+ parseInt(a.hour.split(":")[1])) - parseFloat(parseInt(b.hour.split(":")[0]*60)+ parseInt(b.hour.split(":")[1]))
+    });
+
+}
 
 $scope.addTask = function(){
     let time = ($scope.whenAdd.getHours()<10?"0"+$scope.whenAdd.getHours():$scope.whenAdd.getHours()) +":" + ($scope.whenAdd.getMinutes()<10?"0"+$scope.whenAdd.getMinutes():$scope.whenAdd.getMinutes())

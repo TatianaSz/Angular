@@ -4,6 +4,7 @@
     <input type="time" ng-model="whenAdd">
     <input type="submit"  value="Add">
 </form>
+<button ng-click="sort()">Sortuj według daty</button>
 <ul>
     <li ng-repeat="task in tasks track by $index">
         <h3>{{task.taskName}}</h3>
