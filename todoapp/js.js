@@ -9,7 +9,7 @@ app.controller("taski", ["$scope", function($scope){
     $scope.init = function () {
         let items = JSON.parse(window.localStorage.getItem('taskInfo'))
    console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
-   for(let i = 1;i<items.length;i++){
+   for(let i = 0;i<items.length;i++){
    $scope.tasks.push(items[i])
    }
     }
@@ -38,9 +38,7 @@ $scope.removeTask=function(task){
 }
 
     $scope.tasks = [
-        {taskName: "Fill my task list!",
-         hour: "Everyday!"
-        },
+       
     ]
 
     $scope.init();

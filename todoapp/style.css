@@ -42,3 +42,28 @@ svg{
    margin-left:5px;
    cursor:pointer;
 }
+form{
+    text-align:center;
+    margin-top:1rem;
+}
+form input, button{
+    background-color:#EAF2D7;
+    border:1px solid #5F7367;
+
+}
+form input[type=text]{
+    width:30%;
+    height:1.5rem;
+
+}
+form input[type=time], form input[type=submit], button{
+    line-height:1.5rem;
+}
+button{
+    position:absolute;
+    top:0;
+    right:0;
+}
+.form-container{
+    position:relative;
+}
