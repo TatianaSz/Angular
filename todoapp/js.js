@@ -6,6 +6,19 @@ app.controller("date", ['$scope', function($scope){
 }])
 
 app.controller("taski", ["$scope", function($scope){
+$scope.addTask = function(){
+    let time = $scope.whenAdd.getHours() +":" + $scope.whenAdd.getMinutes()
+
+    $scope.tasks.push({
+        taskName: $scope.whatAdd,
+        hour: time,
+    })
+}
+$scope.removeTask=function(task){
+   const removed = $scope.tasks.indexOf(task);
+    $scope.tasks.splice(removed,1);
+}
+
     $scope.tasks = [
         {taskName: "Fill my task list!",
          hour: "Everyday!"

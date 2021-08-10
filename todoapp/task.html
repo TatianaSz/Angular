@@ -1,9 +1,14 @@
 <div class="task" ng-controller="taski">
-    <input type="text" ng-model="ta" placeholder="What do you need to do?">
+    <form ng-submit="addTask()">
+    <input type="text" ng-model="whatAdd" placeholder="What do you need to do?">
+    <input type="time" ng-model="whenAdd">
+    <input type="submit" value="Add">
+</form>
 <ul>
     <li ng-repeat="task in tasks">
         <h3>{{task.taskName}}</h3>
-        <time>{{task.hour}}</time>
+        <time>{{task.hour}} <div ng-click="removeTask(task)"><i class="fas fa-times" ></i></div></time>
+        
     </li>
 </ul>
 
