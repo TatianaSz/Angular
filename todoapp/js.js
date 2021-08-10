@@ -6,17 +6,29 @@ app.controller("date", ['$scope', function($scope){
 }])
 
 app.controller("taski", ["$scope", function($scope){
+    $scope.init = function () {
+        let items = JSON.parse(window.localStorage.getItem('taskInfo'))
+   console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
+   for(let i = 1;i<items.length;i++){
+   $scope.tasks.push(items[i])
+   }
+    }
+
+
 $scope.addTask = function(){
-    let time = $scope.whenAdd.getHours() +":" + $scope.whenAdd.getMinutes()
+    let time = ($scope.whenAdd.getHours()<10?"0"+$scope.whenAdd.getHours():$scope.whenAdd.getHours()) +":" + ($scope.whenAdd.getMinutes()<10?"0"+$scope.whenAdd.getMinutes():$scope.whenAdd.getMinutes())
 
     $scope.tasks.push({
         taskName: $scope.whatAdd,
         hour: time,
     })
+    window.localStorage.setItem('taskInfo', JSON.stringify($scope.tasks));
+    console.log(JSON.parse(window.localStorage.getItem('taskInfo')))
 }
 $scope.removeTask=function(task){
    const removed = $scope.tasks.indexOf(task);
     $scope.tasks.splice(removed,1);
+    window.localStorage.setItem('taskInfo', JSON.stringify($scope.tasks));
 }
 
     $scope.tasks = [
@@ -24,4 +36,7 @@ $scope.removeTask=function(task){
          hour: "Everyday!"
         },
     ]
-}])
+
+    $scope.init();
+}
+])
